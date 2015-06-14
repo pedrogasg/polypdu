@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ![](https://cloud.githubusercontent.com/assets/110953/7877439/6a69d03e-0590-11e5-9fac-c614246606de.png) 
 ## Polymer Starter Kit
 
@@ -263,3 +264,7 @@ If you find that you just want the simplest setup possible, we recommend using P
 ## Contributing
 
 Polymer Starter Kit is a new project and is an ongoing effort by the Web Component community. We welcome your bug reports, PRs for improvements, docs and anything you think would improve the experience for other Polymer developers.
+=======
+# polypdu
+Color full pdu application
+>>>>>>> 01fb95e0c3c4de8840f2b29fd6f3d757da51954c
