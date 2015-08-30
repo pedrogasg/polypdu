@@ -1,3 +1,4 @@
+﻿<!doctype html>
 <!--
 @license
 Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
@@ -8,7 +9,6 @@ Code distributed by Google as part of the polymer project is also
 subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
 -->
 
-<!doctype html>
 <html lang="">
 
 <head>
@@ -17,7 +17,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="generator" content="Polymer Starter Kit" />
   <title>Polymer Starter Kit</title>
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- Place favicon.ico in the `app/` directory -->
 
   <!-- Chrome for Android theme color -->
   <meta name="theme-color" content="#303F9F">
@@ -30,7 +30,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <!-- Add to homescreen for Chrome on Android -->
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="application-name" content="Polymer Starter Kit">
+  <meta name="application-name" content="PSK">
   <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
 
   <!-- Add to homescreen for Safari on iOS -->
@@ -60,7 +60,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <template is="dom-bind" id="app">
 
     <paper-drawer-panel id="paperDrawerPanel">
-      <div drawer>
+      <!-- Drawer Scroll Header Panel -->
+      <paper-scroll-header-panel drawer fixed>
 
         <!-- Drawer Toolbar -->
         <paper-toolbar id="drawerToolbar">
@@ -68,39 +69,41 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         </paper-toolbar>
 
         <!-- Drawer Content -->
-          <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}" on-iron-select="onMenuSelect">
-              <a data-route="home" href="/">
-                <iron-icon icon="home"></iron-icon>
-                <span>Home</span>
-              </a>
+        <paper-menu class="list" attr-for-selected="data-route" selected="{{route}}" on-iron-select="onMenuSelect">
+          <a data-route="home" href="/">
+            <iron-icon icon="home"></iron-icon>
+            <span>Home</span>
+          </a>
 
-              <a data-route="users" href="/users">
-                <iron-icon icon="info"></iron-icon>
-                <span>Users</span>
-              </a>
+          <a data-route="users" href="/users">
+            <iron-icon icon="info"></iron-icon>
+            <span>Users</span>
+          </a>
 
-              <a data-route="contact" href="/contact">
-                <iron-icon icon="mail"></iron-icon>
-                <span>Contact</span>
-              </a>
-              
-              <a data-route="android" href="/android">
+          <a data-route="contact" href="/contact">
+            <iron-icon icon="mail"></iron-icon>
+            <span>Contact</span>
+          </a>
+
+            <a data-route="android" href="/android">
                 <iron-icon icon="android"></iron-icon>
                 <span>Android</span>
-              </a>
-              
-              <a data-route="list" href="/list">
+            </a>
+
+            <a data-route="list" href="/list">
                 <iron-icon icon="view-list"></iron-icon>
                 <span>List</span>
-              </a>
-          </paper-menu>
-      </div>
-      <paper-header-panel main mode="scroll">
+            </a>
+        </paper-menu>
+      </paper-scroll-header-panel>
+
+      <!-- Main Area -->
+      <paper-scroll-header-panel main condenses keep-condensed-header>
 
         <!-- Main Toolbar -->
-        <paper-toolbar id="mainToolbar">
+        <paper-toolbar id="mainToolbar" class="tall">
           <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
-          <div class="middle paper-font-display2 app-name">Prêt d'union</div>
+
           <span class="flex"></span>
 
           <!-- Toolbar icons -->
@@ -108,10 +111,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <paper-icon-button icon="search"></paper-icon-button>
 
           <!-- Application name -->
+          <div class="middle middle-container center horizontal layout">
+            <div class="app-name">Prêt d'union</div>
+          </div>
 
-          
           <!-- Application sub title -->
-       </paper-toolbar>
+          <div class="bottom bottom-container center horizontal layout">
+            <div class="bottom-title paper-font-subhead">The future of the bank today</div>
+          </div>
+
+        </paper-toolbar>
 
         <!-- Main Content -->
         <div class="content">
@@ -174,32 +183,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <p>This is the contact section</p>
               </paper-material>
             </section>
-            
-            <section data-route="android">
-              <paper-material elevation="1">
-                <h2 class="paper-font-display2">Android <iron-icon class="android-icon" icon="android"></iron-icon> </h2>
-                <p><iron-icon class="android-icon" icon="fancy-icons:fancy-circles"></iron-icon>  The android page</p>
-              </paper-material>
-            </section>
-            
-            <section data-route="list">
-              <paper-material elevation="1">
-                <h2 class="paper-font-display2">List</h2>
-                <core-list data="{{listData}}" flex>
-                  <template>
-                    <div class="row">
-                      <div>{{model.name}}</div>
-                    </div>
-                  </template>
-                </core-list>
-              </paper-material>
-            </section>
-            
+
+              <section data-route="android">
+                  <paper-material elevation="1">
+                      <h2 class="paper-font-display2">Android <iron-icon class="android-icon" icon="android"></iron-icon> </h2>
+                      <p><iron-icon class="android-icon" icon="fancy-icons:fancy-circles"></iron-icon>  The android page</p>
+                  </paper-material>
+              </section>
+
+              <section data-route="list">
+                  <paper-material elevation="1">
+                      <h2 class="paper-font-display2">List</h2>
+                      <core-list data="{{listData}}" flex>
+                          <template>
+                              <div class="row">
+                                  <div>{{model.name}}</div>
+                              </div>
+                          </template>
+                      </core-list>
+                  </paper-material>
+              </section>
+
           </iron-pages>
         </div>
-      </paper-header-panel>
+      </paper-scroll-header-panel>
     </paper-drawer-panel>
 
+    <!-- Uncomment next block to enable Service Worker support (1/2) -->
+    <!--
     <paper-toast id="caching-complete"
                  duration="6000"
                  text="Caching complete! This app will work offline.">
@@ -213,6 +224,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                          precache-file="precache.json">
       </platinum-sw-cache>
     </platinum-sw-register>
+    -->
 
   </template>
 
