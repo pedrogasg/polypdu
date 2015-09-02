@@ -1,0 +1,36 @@
+﻿<dom-module id="app-list">
+    <style>
+        iron-list .row {
+            height: 80px;
+            padding: 16px;
+        }
+
+        iron-list .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin-right: 16px;
+            background-color: #00BCD4;
+        }
+    </style>
+    <template>
+        <iron-list items="[[data]]" as="model">
+            <template>
+                <div class="row" layout horizontal>
+                    <iron-image src="[[model.avatar]]" class="avatar" sizing="cover" preload></iron-image>
+                    <div flex>[[model.name]]</div>
+                </div>
+            </template>
+        </iron-list>
+    </template>
+    <script>
+        (function () {
+            Polymer({
+                is: 'app-list',
+                properties: {
+                    data: Array
+                }
+            });
+        })();
+    </script>
+</dom-module>

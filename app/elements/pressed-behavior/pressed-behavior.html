@@ -1,0 +1,35 @@
+﻿<script>
+    var MyBehaviors = MyBehaviors || {};
+    MyBehaviors.PressedBehavior = {
+        properties: {
+            pressed: {
+                type: Boolean,
+                default: false,
+                readOnly:true
+            }
+        },
+
+        listeners: {
+            mousedown: '_addPressed',
+            mouseup:'_removePressed'
+        },
+        create:function (e) {
+            console.log('voila', e);
+        },
+
+        _addPressed: function () {
+            this.classList.add('pressed');
+            this._onPressStart();
+        },
+        _removePressed: function () {
+            this.classList.remove('pressed');
+            this._onPressEnd();
+        },
+        _onPressStart: function () {
+            //abstract
+        },
+        _onPressEnd: function () {
+            //abstract
+        }
+    }
+</script>
